@@ -38,8 +38,8 @@ function App() {
   const tabItems = [
     { id: 'dashboard', icon: LayoutDashboard, label: t('nav_dashboard') },
     { id: 'calendar',  icon: Calendar,        label: t('nav_calendar') },
-    // Center FAB is inserted between these
     { id: 'history',   icon: History,         label: 'History' },
+    { id: 'guide',     icon: BookOpen,        label: t('nav_guide') },
     { id: 'settings',  icon: Settings,        label: t('nav_settings') },
   ];
 
@@ -80,6 +80,7 @@ function App() {
           <nav className="flex flex-col gap-4 mt-12 w-full">
             <SidebarNavItem icon={<LayoutDashboard size={20} />} label={t('nav_dashboard')} active={activeTab === 'dashboard'} onClick={() => setActiveTab('dashboard')} />
             <SidebarNavItem icon={<Calendar size={20} />} label={t('nav_calendar')} active={activeTab === 'calendar'} onClick={() => setActiveTab('calendar')} />
+            <SidebarNavItem icon={<History size={20} />} label="History" active={activeTab === 'history'} onClick={() => setActiveTab('history')} />
             <SidebarNavItem icon={<Brain size={20} />} label={t('nav_ai')} active={activeTab === 'ai'} onClick={() => setActiveTab('ai')} />
             <SidebarNavItem icon={<BookOpen size={20} />} label={t('nav_guide')} active={activeTab === 'guide'} onClick={() => setActiveTab('guide')} />
           </nav>
@@ -100,6 +101,13 @@ function App() {
                <span className="text-sm font-semibold truncate dark:text-slate-200">{profile?.name || 'Alex Doe'}</span>
                <span className="text-xs text-slate-500 dark:text-slate-500">{t('label_premium')}</span>
              </div>
+          </div>
+          
+          {/* Author Footer */}
+          <div className="mt-2 pt-4 border-t border-slate-100 dark:border-[#2a2d3d] text-center w-full">
+            <p className="text-[10px] text-slate-400 dark:text-slate-500 font-medium tracking-wide">
+              Crafted by <span className="font-bold text-brand-500">ELI_BHAI</span>
+            </p>
           </div>
         </div>
       </motion.aside>
@@ -223,46 +231,51 @@ function App() {
         </div>
 
         {/* ═══════════ Mobile Bottom Navigation Bar ═══════════ */}
-        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-3 pt-1">
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 px-2 sm:px-4 pb-3 pt-1">
           {/* Glassmorphism container */}
-          <div className="relative bg-white/80 backdrop-blur-xl border border-white/50 rounded-[1.75rem] shadow-[0_-4px_30px_rgba(0,0,0,0.08)] px-2 py-1.5 flex items-end justify-around">
+          <div className="relative bg-white/80 backdrop-blur-xl border border-white/50 rounded-[1.75rem] shadow-[0_-4px_30px_rgba(0,0,0,0.08)] px-1 sm:px-2 py-1.5 flex items-end justify-between">
             
-            {/* Left nav items */}
-            {tabItems.slice(0, 2).map(item => (
-              <BottomNavItem
-                key={item.id}
-                icon={item.icon}
-                label={item.label}
-                active={activeTab === item.id}
-                onClick={() => setActiveTab(item.id)}
-              />
-            ))}
+            {/* Left nav items (Dashboard, Calendar) */}
+            <div className="flex justify-around flex-1">
+              {tabItems.slice(0, 2).map(item => (
+                <BottomNavItem
+                  key={item.id}
+                  icon={item.icon}
+                  label={item.label}
+                  active={activeTab === item.id}
+                  onClick={() => setActiveTab(item.id)}
+                />
+              ))}
+            </div>
 
             {/* Center FAB — New Event */}
-            <div className="relative -mt-5 mx-1">
+            <div className="relative -mt-5 shrink-0 px-1 sm:px-2">
               {/* Notch / bump background */}
-              <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-[72px] h-[36px] bg-slate-50 rounded-b-[36px]" 
-                   style={{ clipPath: 'ellipse(36px 20px at 50% 0%)' }} />
+              <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-[68px] h-[34px] bg-slate-50 rounded-b-[34px]" 
+                   style={{ clipPath: 'ellipse(34px 18px at 50% 0%)' }} />
               <motion.button
                 onClick={() => setShowNLModal(true)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.92 }}
-                className="relative z-10 w-14 h-14 bg-gradient-to-br from-brand-500 to-violet-600 rounded-2xl flex items-center justify-center shadow-lg shadow-brand-500/30 text-white"
+                className="relative z-10 w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-brand-500 to-violet-600 rounded-[14px] sm:rounded-2xl flex items-center justify-center shadow-lg shadow-brand-500/30 text-white"
               >
-                <Plus size={24} strokeWidth={2.5} />
+                <Plus size={22} strokeWidth={2.5} />
               </motion.button>
             </div>
 
-            {/* Right nav items */}
-            {tabItems.slice(2).map(item => (
-              <BottomNavItem
-                key={item.id}
-                icon={item.icon}
-                label={item.label}
-                active={activeTab === item.id}
-                onClick={() => setActiveTab(item.id)}
-              />
-            ))}
+            {/* Right nav items (History, Guide, Settings) */}
+            <div className="flex justify-around flex-1">
+              {tabItems.slice(2).map(item => (
+                <BottomNavItem
+                  key={item.id}
+                  icon={item.icon}
+                  label={item.label}
+                  active={activeTab === item.id}
+                  onClick={() => setActiveTab(item.id)}
+                />
+              ))}
+            </div>
+            
           </div>
         </div>
       </main>

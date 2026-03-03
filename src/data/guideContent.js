@@ -259,6 +259,38 @@ const guideContent = {
         },
       ],
     },
+    {
+      id: 'faqs',
+      icon: '❓',
+      title: { en: 'Frequently Asked Questions', ur: 'اکثر پوچھے گئے سوالات', zh: '常见问题解答' },
+      description: { en: 'Common questions and quick answers.', ur: 'عام سوالات اور فوری جوابات۔', zh: '常见问题与快速解答。' },
+      sections: [
+        {
+          title: { en: 'General FAQs', ur: 'عام سوالات', zh: '常规问题' },
+          content: {
+            en: '**Q: Where is my data stored?**\nA: All your events, history, and profile data are stored locally on your device using `localStorage`. No data is sent to any external server, ensuring 100% privacy.\n\n**Q: How do the AI features work offline?**\nA: Aurora uses advanced local parsing and algorithms to detect conflicts, break down tasks, and suggest times without needing an internet connection or external API.\n\n**Q: Will I lose my data if I clear my browser cookies?**\nA: If you clear your site data or local storage for this domain, your data will be lost. You can use the Export feature in Settings to backup your data beforehand.\n\n**Q: Can I use Aurora on multiple devices?**\nA: Currently, Aurora is a local-first application. Data does not sync across different devices automatically unless you export from one and import to another (coming soon).\n\n**Q: The AI natural language input isn\'t recognizing my event. What should I do?**\nA: Try sticking to standard formats like *"Meeting with Team tomorrow at 3pm for 1 hour"*. The parser looks for relative days, times (am/pm), and durations.',
+            ur: '**سوال: میرا ڈیٹا کہاں محفوظ ہے؟**\nجواب: آپ کا تمام ڈیٹا آپ کے ڈیوائس پر مقامی طور پر محفوظ ہے۔',
+            zh: '**问：我的数据存储在哪里？**\n答：所有数据均本地存储在您的设备上，100%保证隐私。',
+          }
+        }
+      ]
+    },
+    {
+      id: 'privacy-policy',
+      icon: '🛡️',
+      title: { en: 'Privacy Policy', ur: 'رازداری کی پالیسی', zh: '隐私政策' },
+      description: { en: 'How we protect your data and privacy.', ur: 'ہم آپ کا ڈیٹا کیسے محفوظ رکھتے ہیں۔', zh: '我们如何保护您的数据与隐私。' },
+      sections: [
+        {
+          title: { en: 'Our Commitment to Privacy', ur: 'رازداری کا عہد', zh: '我们的隐私承诺' },
+          content: {
+            en: '**Local-First Storage:**\nAurora is a local-first application. This means all of your data — including events, personal profile, settings, and history — resides entirely on your device (in your browser\'s local storage). We do not have servers that collect, read, or distribute your calendar data.\n\n**No Third-Party Tracking:**\nWe do not use invasive third-party trackers, analytics, or ads. Your usage habits and schedule remain completely private.\n\n**Push Notifications:**\nBrowser push notifications are handled entirely by your local operating system and browser. The event data used in notifications never leaves your device.\n\n**Export & Deletion:**\nYou have full ownership of your data. You can export your data at any time via Settings, or permanently delete everything using the "Clear Cache" or "Delete Account" options.\n\n*Effective Date: March 2026*',
+            ur: 'ارورا ایک مقامی ایپ ہے۔ آپ کا تمام ڈیٹا آپ کے آلے پر رہتا ہے۔ ہم کوئی ڈیٹا ٹریک نہیں کرتے۔',
+            zh: 'Aurora是本地优先应用。所有数据都留在您的设备上。我们不跟踪、不收集您的日程安排。',
+          }
+        }
+      ]
+    },
   ],
 };
 
